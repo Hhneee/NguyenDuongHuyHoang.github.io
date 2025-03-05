@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Your Name</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>Your Name</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#skills">Kỹ năng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="hero">
+        <div class="container">
+            <h2>Xin chào! Tôi là <span>Your Name</span></h2>
+            <p>Lập trình viên Front-End đam mê sáng tạo giao diện đẹp và trải nghiệm mượt mà.</p>
+            <a href="#projects" class="btn">Xem Dự Án</a>
+        </div>
+    </section>
+    
+    <section id="about" class="container fade-in">
+        <h2>Giới thiệu</h2>
+        <p>Tôi là sinh viên năm 4 tại HUTECH, yêu thích lập trình Front-End và công nghệ web hiện đại.</p>
+    </section>
+    
+    <section id="projects" class="container fade-in">
+        <h2>Dự án</h2>
+        <div class="project-list">
+            <div class="project hover-effect">
+                <h3>Shoe Selling Website</h3>
+                <p>Một trang web bán giày sử dụng Java và Spring Boot.</p>
+            </div>
+            <div class="project hover-effect">
+                <h3>Smart Wardrobe</h3>
+                <p>Ứng dụng quản lý tủ quần áo thông minh tích hợp API thời tiết.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="container fade-in">
+        <h2>Kỹ năng</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>ReactJS</li>
+            <li>Flutter</li>
+            <li>Java & Spring Boot</li>
+        </ul>
+    </section>
+    
+    <section id="contact" class="container fade-in">
+        <h2>Liên hệ</h2>
+        <p>Email: your.email@example.com</p>
+        <p>GitHub: github.com/yourname</p>
+        <div class="social-links">
+            <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="github.png" alt="GitHub"></a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <button id="scrollTopBtn">⬆</button>
+    </footer>
+    
+    <script>
+        document.getElementById("scrollTopBtn").addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", function() {
+            let header = document.getElementById("main-header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let sections = document.querySelectorAll(".fade-in");
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
